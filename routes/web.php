@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/hello', function(){
+    $nama = "Khaidir";
+    $kampus = "<b>POLTEK PGRI</b>";
+    return view('hello', compact('nama', 'kampus'));
+});
+
+Route::resource('mahasiswa', MahasiswaController::class);
+
 
 Route::get('/', function () {
     return view('welcome');

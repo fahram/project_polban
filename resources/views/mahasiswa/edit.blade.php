@@ -10,8 +10,11 @@
                     Edit Mahasiswa
                 </div>
                 <div class="card-body">
-                    {!! Form::model($mahasiswa ,  ['method'=>'PATCH', 
-                    'route'=> [ 'mahasiswa.update' , $mahasiswa->id]]) !!}
+                    {!! Form::model($mahasiswa ,  [
+                        'method'=>'PATCH', 
+                        'route'=> [ 'mahasiswa.update' , $mahasiswa->id],
+                        'files' => true
+                        ]) !!}
                         @include('mahasiswa.form')
                     {!! Form::close() !!}
                 </div>

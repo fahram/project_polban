@@ -9,6 +9,8 @@
                     Detail Data Mahasiswa
                 </div>
                 <div class="card-body">
+                    <img src="/storage/{{$mahasiswa->photo}}" height="100"/>
+                    <hr>
                     Nama : {{$mahasiswa->nama}} 
                     <hr>
                     Nim : {{$mahasiswa->nim}} 

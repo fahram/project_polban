@@ -20,7 +20,18 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
-        Mahasiswa::create($request->all());
+        $request->validate([
+            'nim' => 'required|digits:8',
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required|date',
+        ]);
+        
+        $mahasiswa = Mahasiswa::create($request->all());
+        if($request->hasFile('photo')){
+            $mahasiswa->photo = $request->file('photo')->store('avatar');
+            $mahasiswa->save();
+        }
         return redirect()->route('mahasiswa.index');
     }
 
@@ -37,6 +48,10 @@ class MahasiswaController extends Controller
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
         $mahasiswa->update($request->all());
+        if($request->hasFile('photo')){
+            $mahasiswa->photo = $request->file('photo')->store('avatar');
+            $mahasiswa->save();
+        }
         return redirect()->route('mahasiswa.index');
     }
 

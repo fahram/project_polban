@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
 
-                    {!! Form::model($mahasiswa = new \App\Models\Mahasiswa,  ['url'=>'mahasiswa']) !!}
+                    {!! Form::model($mahasiswa = new \App\Models\Mahasiswa,  ['url'=>'mahasiswa','files'=>true]) !!}
                         @include('mahasiswa.form')
                     {!! Form::close() !!}
                 </div>

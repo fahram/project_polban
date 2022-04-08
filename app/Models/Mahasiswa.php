@@ -14,5 +14,6 @@ class Mahasiswa extends Model
         'nim',
         'tempat_lahir',
         'tanggal_lahir',
+        'photo',
     ];
 }
